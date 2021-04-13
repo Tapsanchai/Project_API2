@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, json
+from flask import Flask, render_template, request, jsonify, json
 import requests 
+from .api_PM25_Thailand import Now_AQI
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
 
+'''
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
 # AQI_PM2.5
 PM_2_5_url = "http://api.airvisual.com/v2/city?city=Bangkok&state=Bangkok&country=Thailand&key=eb400bfd-3588-4482-9411-5fd3d7d434a8"
@@ -60,10 +61,16 @@ Forecast_City = result2['Provinces'][36]['ProvinceNameTh']
 Forecast_Datetime = result2['Provinces'][36]['SevenDaysForecast'][0]['Date']
 Data_WeatherForecast7Days = {
     "Forecast": Forecast, "Forecast_City": Forecast_City, "Forecast_Date": Forecast_Datetime}
+'''
 
-@app.route("/")
+@app.route("/", methods=(['GET', 'POST']))
 def Show_Index():
-    return render_template("index.html", Value_WToday=Data_WeatherToday, Value_WForcast=Data_WeatherForecast7Days, Value_Covid=Now_Covid19, Value_Covid_World=Data_Covid19_all)
+    '''
+    PM_2_5_url = "http://api.airvisual.com/v2/city?city=Bangkok&state=Bangkok&country=Thailand&key=eb400bfd-3588-4482-9411-5fd3d7d434a8"
+    full_pm25_data = jsonify(PM_2_5_url)
+    '''
+    return render_template("test.html",Value = Now_AQI)
+    #return render_template("index.html", Value_WToday=Data_WeatherToday, Value_WForcast=Data_WeatherForecast7Days, Value_Covid=Now_Covid19, Value_Covid_World=Data_Covid19_all)
 
 
 
