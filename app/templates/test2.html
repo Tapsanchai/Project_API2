@@ -1,4 +1,5 @@
-{% extends "layout_web.html" %} {% block content %}
+{% extends "layout_web.html" %} 
+{% block content %}
 <div class="container-fluid">
   <div class="row">
     <div class="bg-image">
@@ -33,162 +34,218 @@
         </div>
         <!-- 2 -->
         <div class="row">
-            <div class="col-lg-12">
-              <div class="shadow rounded-lg" style="background-color: #efdbff">
-                <div class="p-4">
-                  <h3 class="font-weight-bold font-effect-shadow-multiple">
-                    สภาพอากาศปัจจุบัน
-                  </h3>
-                  <hr />
-                  <div class="row justify-content-between align-items-end">
-                    <div class="col-lg-8">
-
-                      <div class="pl-4 pr-4">
-                        <h5 class="font-weight-bold">
-                          วัน/เดือน/ปี (เวลา):
-                          <span class="ml-1 text-dark font-weight-normal"
-                            >{{Value_WT.Forecast_data7d.time}}</span
-                          >
-                        </h5>
-                        <h5 class="font-weight-bold">
-                          จังหวัด:
-                          <span class="ml-1 text-dark font-weight-normal"
-                            >{{Value_WT.Forecast_city}}</span
-                          >
-                        </h5>
-                        <h5 class="font-weight-bold">
-                            เขต:
-                            <span class="ml-1 text-dark font-weight-normal"
-                              >{{Value_WT.Forecast_amphoe}}</span
-                            >
-                          </h5>
-                          <h5 class="font-weight-bold">
-                            แขวง:
-                            <span class="ml-1 text-dark font-weight-normal"
-                              >{{Value_WT.Forecast_tambon}}</span
-                            >
-                          </h5>
-                        <h5 class="font-weight-bold">
-                          อุณหภูมิปัจจุบัน:
-                          <span class="ml-1 text-dark font-weight-normal"
-                            >{{Value_WT.Forecast_data7d.data.tc_min}} - {{Value_WT.Forecast_data7d.data.tc_max}} °C</span
-                          >
-                        </h5>
-                        <h5 class="font-weight-bold">
-                          สภาพอากาศ:
-                          <span class="ml-1 text-dark font-weight-normal"
-                            >{{Value_WT.Forecast_data7d.data.cond}}
-                            </span
-                          >
-                        </h5>
-                        <h5 class="font-weight-bold">
-                          แรงลม:
-                          <span class="ml-1 text-dark font-weight-normal"
-                            >{{Value_WT.Forecast_data7d.data.ws10m}}
-                            km/h</span
-                          >
-                        </h5>
-                        <h5 class="font-weight-bold">
-                          ฝนตก:
-                          <span class="ml-1 font-weight-normal"
-                            >{{Value_WT.Forecast_data7d.data.rain}} mm</span
-                          >
-                        </h5>
-                        <h5 class="font-weight-bold">
-                            ความชื้น:
-                            <span class="ml-1 font-weight-normal"
-                              >{{Value_WT.Forecast_data7d.data.rh}} %</span
-                            >
-                          </h5>
-                        <h5 class="font-weight-bold">
-                          ดัชนี AQI(PM2.5):
-                          <span class="ml-1 font-weight-normal text-danger"
-                            >{{Value_PM25}}</span
-                          >
-                        </h5>
-                      </div>
-                    </div>
-  
-                    <div class="col-lg-4 text-center">
+          <div class="col-lg-12">
+            <div class="shadow rounded-lg" style="background-color: #efdbff">
+              <div class="p-4">
+                <h3 class="font-weight-bold font-effect-shadow-multiple">
+                  สภาพอากาศปัจจุบัน
+                </h3>
+                <hr />
+                <div class="row justify-content-between align-items-end">
+                  <div class="col-lg-8">
+                    <div class="text-left pl-4 mb-2">
+                      {% if Value_WT.Forecast_data7d.data.cond == 12 %}
                       <img
-                        class="img-fluid"
-                        src="{{ url_for('static',filename='man_report_shadow.png')}}"
+                        class="bg-weather-size"
+                        src="{{ url_for('static',filename='picture_Weather/SH.png') }}"
                         alt=""
-                        style="height: 290px; width: auto"
                       />
+                      {% elif Value_WT.Forecast_data7d.data.cond >= 9 %}
+                      <img
+                        class="bg-weather-size"
+                        src="{{ url_for('static',filename='picture_Weather/SC.png') }}"
+                        alt=""
+                      />
+                      {% elif Value_WT.Forecast_data7d.data.cond >= 5 %}
+                      <img
+                        class="bg-weather-size"
+                        src="{{ url_for('static',filename='picture_Weather/HR.png') }}"
+                        alt=""
+                      />
+                      {% elif Value_WT.Forecast_data7d.data.cond >= 1 %}
+                      <img
+                        class="bg-weather-size"
+                        src="{{ url_for('static',filename='picture_Weather/C.png') }}"
+                        alt=""
+                      />
+                      {% endif %}
+                    </div>
+                    <div class="pl-4 pr-4">
+                      <h5
+                        class="font-weight-bold text-truncate"
+                        style="width: 310px"
+                      >
+                        วัน/เดือน/ปี (เวลา):
+                        <span
+                          class="ml-1 text-dark font-weight-normal"
+                          style="
+                            text-overflow: ellipsis;
+                            width: 200px;
+                            overflow: hidden;
+                            white-space: nowrap;
+                          "
+                          >{{Value_WT.Forecast_data7d.time}}</span
+                        >
+                      </h5>
+                      <h5 class="font-weight-bold">
+                        จังหวัด:
+                        <span class="ml-1 text-dark font-weight-normal"
+                          >{{Value_WT.Forecast_city}}</span
+                        >
+                        เขต:
+                        <span class="ml-1 text-dark font-weight-normal"
+                          >{{Value_WT.Forecast_amphoe}}</span
+                        >
+                        แขวง:
+                        <span class="ml-1 text-dark font-weight-normal"
+                          >{{Value_WT.Forecast_tambon}}</span
+                        >
+                      </h5>
+                      <h5 class="font-weight-bold">
+                        อุณหภูมิปัจจุบัน:
+                        <span class="ml-1 text-dark font-weight-normal">
+                          {{Value_WT.Forecast_data7d.data.tc_min}} -
+                          {{Value_WT.Forecast_data7d.data.tc_max}} °C
+                        </span>
+                      </h5>
+                      <h5 class="font-weight-bold">
+                        สภาพอากาศ:
+                        <span class="ml-1 text-dark font-weight-normal">
+                          {% if Value_WT.Forecast_data7d.data.cond == 1 %}
+                          ท้องฟ้าแจ่มใส (Clear) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 2 %}
+                          มีเมฆบางส่วน (Partly cloudy) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 3 %}
+                          เมฆเป็นส่วนมาก (Cloudy) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 4 %} มีเมฆมาก
+                          (Overcast) {% elif Value_WT.Forecast_data7d.data.cond
+                          == 5 %} ฝนตกเล็กน้อย (Light rain) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 6 %} ฝนปานกลาง
+                          (Moderate rain) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 7 %} ฝนตกหนัก
+                          (Heavy rain) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 8 %} ฝนฟ้าคะนอง
+                          (Thunderstorm) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 9 %}
+                          อากาศหนาวจัด (Very cold) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 10 %} อากาศหนาว
+                          (Cold) {% elif Value_WT.Forecast_data7d.data.cond ==
+                          11 %} อากาศเย็น (Cool) {% elif
+                          Value_WT.Forecast_data7d.data.cond == 12 %}
+                          อากาศร้อนจัด (Very hot) {% endif %}
+                        </span>
+                      </h5>
+                      <h5 class="font-weight-bold">
+                        แรงลม:
+                        <span class="ml-1 text-dark font-weight-normal"
+                          >{{Value_WT.Forecast_data7d.data.ws10m * 3.6}}
+                          km/h</span
+                        >
+                        ความชื้น:
+                        <span class="ml-1 font-weight-normal"
+                          >{{Value_WT.Forecast_data7d.data.rh}} %</span
+                        >
+                      </h5>
+                      <h5 class="font-weight-bold">
+                        ดัชนี AQI(PM2.5):
+                        <span class="ml-1 font-weight-normal text-danger"
+                          >{{Value_PM25}}</span
+                        >
+                      </h5>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-lg-12">
-              <div class="mb-3">
-                <h3 class="font-weight-bold font-effect-shadow-multiple">
-                  <i class="fas fa-user-md"></i> รายงานโควิดรายวัน (Thailand)
-                </h3>
-              </div>
-              <div class="row text-center">
-                <div class="col-lg-3 bg-danger text-white shadow rounded-left">
-                  <div class="m-4">
-                    <h5 class="">ติดเชื้อสะสม</h5>
-                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Confirmed}}</h4>
-                  </div>
-                </div>
-                <div class="col-lg-3 bg-success text-white shadow">
-                  <div class="m-4">
-                    <h5 class="">รักษาหายแล้ว</h5>
-                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Recovered}}</h4>
-                  </div>
-                </div>
-                <div class="col-lg-3 bg-info text-white shadow">
-                  <div class="m-4">
-                    <h5 class="">กำลังรักษาอยู่ใน ร.พ</h5>
-                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Hospitalized}}</h4>
-                  </div>
-                </div>
-                <div class="col-lg-3 bg-dark text-white shadow rounded-right">
-                  <div class="m-4">
-                    <h5 class="">เสียชีวิต</h5>
-                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Deaths}}</h4>
+
+                  <div class="col-lg-4 text-center">
+                    <img
+                      class="img-fluid"
+                      src="{{ url_for('static',filename='man_report_shadow.png')}}"
+                      alt=""
+                      style="height: 290px; width: auto"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row mt-5">
-            <div class="col-lg-12">
-              <div class="mb-3">
-                <h3 class="font-weight-bold font-effect-shadow-multiple">
-                  <i class="fas fa-globe-asia"></i> รายงานโควิดจากทั่วโลก (World)
-                </h3>
-              </div>
-              <div class="row text-center">
-                <div class="col-lg-4 bg-danger text-white shadow rounded-left">
-                  <div class="m-4">
-                    <h5 class="">ติดเชื้อสะสม</h5>
-                    <h4 class="font-weight-bold">
-                      {{Value_Covid.Data_Covid19_all.confirmed}}
-                    </h4>
-                  </div>
-                </div>
-                <div class="col-lg-4 bg-success text-white shadow">
-                  <div class="m-4">
-                    <h5 class="">รักษาหายแล้ว</h5>
-                    <h4 class="font-weight-bold">
-                      {{Value_Covid.Data_Covid19_all.recovered}}
-                    </h4>
-                  </div>
-                </div>
-                <div class="col-lg-4 bg-dark text-white shadow rounded-right">
-                  <div class="m-4">
-                    <h5 class="">เสียชีวิต</h5>
-                    <h4 class="font-weight-bold">{{Value_Covid.Data_Covid19_all.deaths}}</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- covid box -->
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <div class="mb-3">
+        <h3 class="font-weight-bold font-effect-shadow-multiple">
+          <i class="fas fa-user-md"></i> รายงานโควิดรายวัน (Thailand)
+        </h3>
+      </div>
+      <div class="row text-center">
+        <div class="col-lg-3 bg-danger text-white shadow rounded-left">
+          <div class="m-4">
+            <h5 class="">ติดเชื้อสะสม</h5>
+            <h4 class="font-weight-bold">
+              {{Value_Covid.Now_Covid19.Confirmed}}
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-3 bg-success text-white shadow">
+          <div class="m-4">
+            <h5 class="">รักษาหายแล้ว</h5>
+            <h4 class="font-weight-bold">
+              {{Value_Covid.Now_Covid19.Recovered}}
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-3 bg-info text-white shadow">
+          <div class="m-4">
+            <h5 class="">กำลังรักษาอยู่ใน ร.พ</h5>
+            <h4 class="font-weight-bold">
+              {{Value_Covid.Now_Covid19.Hospitalized}}
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-3 bg-dark text-white shadow rounded-right">
+          <div class="m-4">
+            <h5 class="">เสียชีวิต</h5>
+            <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Deaths}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-12">
+      <div class="mb-3">
+        <h3 class="font-weight-bold font-effect-shadow-multiple">
+          <i class="fas fa-globe-asia"></i> รายงานโควิดจากทั่วโลก (World)
+        </h3>
+      </div>
+      <div class="row text-center">
+        <div class="col-lg-4 bg-danger text-white shadow rounded-left">
+          <div class="m-4">
+            <h5 class="">ติดเชื้อสะสม</h5>
+            <h4 class="font-weight-bold">
+              {{Value_Covid.Data_Covid19_all.confirmed}}
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-4 bg-success text-white shadow">
+          <div class="m-4">
+            <h5 class="">รักษาหายแล้ว</h5>
+            <h4 class="font-weight-bold">
+              {{Value_Covid.Data_Covid19_all.recovered}}
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-4 bg-dark text-white shadow rounded-right">
+          <div class="m-4">
+            <h5 class="">เสียชีวิต</h5>
+            <h4 class="font-weight-bold">
+              {{Value_Covid.Data_Covid19_all.deaths}}
+            </h4>
           </div>
         </div>
       </div>
