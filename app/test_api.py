@@ -1,3 +1,4 @@
+from app import __init__
 import requests
 import json 
 
