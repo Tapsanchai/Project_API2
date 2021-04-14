@@ -118,7 +118,7 @@
                     <hr />
                     <div class="row justify-content-between align-items-end">
                       <div class="col-lg-8">
-                        <div class="text-left pl-4 mb-2">
+                        <div class="text-left pl-4 mb-3">
                           {% if Value_WForcast.Forecast[0].WeatherDescriptionEn
                           == "Partly Cloudy" %}
                           <img
@@ -163,46 +163,46 @@
                         <div class="pl-4 pr-4">
                           <h5 class="font-weight-bold">
                             วัน/เดือน/ปี (เวลา):
-                            <span class="ml-2 text-dark font-weight-normal"
+                            <span class="ml-1 text-dark font-weight-normal"
                               >{{Value_WToday.Datetime}}</span
                             >
                           </h5>
                           <h5 class="font-weight-bold">
                             จังหวัด:
-                            <span class="ml-2 text-dark font-weight-normal"
+                            <span class="ml-1 text-dark font-weight-normal"
                               >{{Value_WToday.City}}</span
                             >
                           </h5>
                           <h5 class="font-weight-bold">
                             อุณหภูมิปัจจุบัน:
-                            <span class="ml-2 text-dark font-weight-normal"
+                            <span class="ml-1 text-dark font-weight-normal"
                               >{{Value_WToday.Tem}} °C</span
                             >
                           </h5>
                           <h5 class="font-weight-bold">
                             สภาพอากาศ:
-                            <span class="ml-2 text-dark font-weight-normal"
+                            <span class="ml-1 text-dark font-weight-normal"
                               >{{Value_WForcast.Forecast[0].WeatherDescription}}
                               ({{Value_WForcast.Forecast[0].WeatherDescriptionEn}})</span
                             >
                           </h5>
                           <h5 class="font-weight-bold">
                             แรงลม:
-                            <span class="ml-2 text-dark font-weight-normal"
+                            <span class="ml-1 text-dark font-weight-normal"
                               >{{Value_WForcast.Forecast[0].WindSpeed.Value}}
                               km/h</span
                             >
                           </h5>
                           <h5 class="font-weight-bold">
                             ฝนตก:
-                            <span class="ml-2 font-weight-normal"
+                            <span class="ml-1 font-weight-normal"
                               >{{Value_WForcast.Forecast[0].Rain.Value}} %</span
                             >
                           </h5>
                           <h5 class="font-weight-bold">
                             ดัชนี AQI(PM2.5):
-                            <span class="ml-2 font-weight-normal text-danger"
-                              >{{Value_WToday.PM25}}</span
+                            <span class="ml-1 font-weight-normal text-danger"
+                              >{{Value_PM25}}</span
                             >
                           </h5>
                         </div>
@@ -327,28 +327,28 @@
             </h3>
           </div>
           <div class="row text-center">
-            <div class="col-lg-3 bg-danger text-white shadow">
+            <div class="col-lg-3 bg-danger text-white shadow rounded-left">
               <div class="m-4">
                 <h5 class="">ติดเชื้อสะสม</h5>
-                <h4 class="font-weight-bold">{{Value_Covid.Confirmed}}</h4>
+                <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Confirmed}}</h4>
               </div>
             </div>
             <div class="col-lg-3 bg-success text-white shadow">
               <div class="m-4">
                 <h5 class="">รักษาหายแล้ว</h5>
-                <h4 class="font-weight-bold">{{Value_Covid.Recovered}}</h4>
+                <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Recovered}}</h4>
               </div>
             </div>
             <div class="col-lg-3 bg-info text-white shadow">
               <div class="m-4">
                 <h5 class="">กำลังรักษาอยู่ใน ร.พ</h5>
-                <h4 class="font-weight-bold">{{Value_Covid.Hospitalized}}</h4>
+                <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Hospitalized}}</h4>
               </div>
             </div>
-            <div class="col-lg-3 bg-dark text-white shadow">
+            <div class="col-lg-3 bg-dark text-white shadow rounded-right">
               <div class="m-4">
                 <h5 class="">เสียชีวิต</h5>
-                <h4 class="font-weight-bold">{{Value_Covid.Deaths}}</h4>
+                <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Deaths}}</h4>
               </div>
             </div>
           </div>
@@ -362,11 +362,11 @@
             </h3>
           </div>
           <div class="row text-center">
-            <div class="col-lg-4 bg-danger text-white shadow">
+            <div class="col-lg-4 bg-danger text-white shadow rounded-left">
               <div class="m-4">
                 <h5 class="">ติดเชื้อสะสม</h5>
                 <h4 class="font-weight-bold">
-                  {{Value_Covid_World.confirmed}}
+                  {{Value_Covid.Data_Covid19_all.confirmed}}
                 </h4>
               </div>
             </div>
@@ -374,14 +374,14 @@
               <div class="m-4">
                 <h5 class="">รักษาหายแล้ว</h5>
                 <h4 class="font-weight-bold">
-                  {{Value_Covid_World.recovered}}
+                  {{Value_Covid.Data_Covid19_all.recovered}}
                 </h4>
               </div>
             </div>
-            <div class="col-lg-4 bg-dark text-white shadow">
+            <div class="col-lg-4 bg-dark text-white shadow rounded-right">
               <div class="m-4">
                 <h5 class="">เสียชีวิต</h5>
-                <h4 class="font-weight-bold">{{Value_Covid_World.deaths}}</h4>
+                <h4 class="font-weight-bold">{{Value_Covid.Data_Covid19_all.deaths}}</h4>
               </div>
             </div>
           </div>
