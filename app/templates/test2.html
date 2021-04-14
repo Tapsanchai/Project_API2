@@ -63,6 +63,74 @@
               </div>
             </div>
           </div>
+          <div class="row mt-4">
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <h3 class="font-weight-bold font-effect-shadow-multiple">
+                  <i class="fas fa-user-md"></i> รายงานโควิดรายวัน (Thailand)
+                </h3>
+              </div>
+              <div class="row text-center">
+                <div class="col-lg-3 bg-danger text-white shadow rounded-left">
+                  <div class="m-4">
+                    <h5 class="">ติดเชื้อสะสม</h5>
+                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Confirmed}}</h4>
+                  </div>
+                </div>
+                <div class="col-lg-3 bg-success text-white shadow">
+                  <div class="m-4">
+                    <h5 class="">รักษาหายแล้ว</h5>
+                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Recovered}}</h4>
+                  </div>
+                </div>
+                <div class="col-lg-3 bg-info text-white shadow">
+                  <div class="m-4">
+                    <h5 class="">กำลังรักษาอยู่ใน ร.พ</h5>
+                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Hospitalized}}</h4>
+                  </div>
+                </div>
+                <div class="col-lg-3 bg-dark text-white shadow rounded-right">
+                  <div class="m-4">
+                    <h5 class="">เสียชีวิต</h5>
+                    <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Deaths}}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <h3 class="font-weight-bold font-effect-shadow-multiple">
+                  <i class="fas fa-globe-asia"></i> รายงานโควิดจากทั่วโลก (World)
+                </h3>
+              </div>
+              <div class="row text-center">
+                <div class="col-lg-4 bg-danger text-white shadow rounded-left">
+                  <div class="m-4">
+                    <h5 class="">ติดเชื้อสะสม</h5>
+                    <h4 class="font-weight-bold">
+                      {{Value_Covid.Data_Covid19_all.confirmed}}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-lg-4 bg-success text-white shadow">
+                  <div class="m-4">
+                    <h5 class="">รักษาหายแล้ว</h5>
+                    <h4 class="font-weight-bold">
+                      {{Value_Covid.Data_Covid19_all.recovered}}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-lg-4 bg-dark text-white shadow rounded-right">
+                  <div class="m-4">
+                    <h5 class="">เสียชีวิต</h5>
+                    <h4 class="font-weight-bold">{{Value_Covid.Data_Covid19_all.deaths}}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
