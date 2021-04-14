@@ -1,4 +1,3 @@
-from app import __init__
 import requests
 import json 
 
@@ -11,4 +10,4 @@ def show_pm25(url_th):
     Now_AQI = result['data']['current']['pollution']['aqius']
     return Now_AQI
 
-show_pm25(PM_25_url_TH)
+show_pm25()
