@@ -4,13 +4,12 @@ import requests
 app = Flask(__name__)
 app.config['SECRET_KEY'] ='mykey'
 app.config['DEBUG'] = True
-'''
-from app.api_covid19 import show_covid
-from app.api_PM25_Thailand import show_pm25
-from app.api_Weather_Thailand import show_weather, show_weatherF
-#from app.all_link_url import *
-'''
-from app.test_api import *
+
+from app.api_covid19 import *
+from app.api_PM25_Thailand import *
+from app.api_Weather_Thailand import *
+
+
 
 
 @app.route("/", methods=(['GET', 'POST']))
