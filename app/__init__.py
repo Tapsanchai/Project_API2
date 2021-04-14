@@ -18,7 +18,7 @@ def Show_Index():
     arguments_WeatherToday = show_weather(WeatherToday_url_TH)
     arguments_WeatherForecast7Days = show_weatherF(WeatherForecast7Days_url_TH)
     
-    return render_template("index.html",Value_Covid=arguments_covid, Value_PM25=arguments_pm25, 
+    return render_template("test.html",Value_Covid=arguments_covid, Value_PM25=arguments_pm25, 
     Value_WForcast=arguments_WeatherForecast7Days, Value_WToday=arguments_WeatherToday)
 
 
