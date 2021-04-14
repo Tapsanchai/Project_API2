@@ -23,7 +23,7 @@ def Show_Index():
     return render_template("test.html",Value_Covid=arguments_covid, Value_PM25=arguments_pm25, 
     Value_WForcast=arguments_WeatherForecast7Days, Value_WToday=arguments_WeatherToday)
     '''
-    return render_template("test.html",Value_PM25=arguments_pm25, Value_WT=arguments_Weather )
+    return render_template("test2.html",Value_PM25=arguments_pm25, Value_WT=arguments_Weather )
 
 
 if __name__ == '__main__':
