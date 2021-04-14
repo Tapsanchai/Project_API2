@@ -42,66 +42,64 @@
                   <hr />
                   <div class="row justify-content-between align-items-end">
                     <div class="col-lg-8">
-                      <div class="text-left pl-4 mb-3">
-                        {% if Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
-                        "Partly Cloudy" %}
-                        <img
-                          class="bg-weather-size"
-                          src="{{ url_for('static',filename='picture_Weather/PC.png') }}" 
-                          alt=""
-                        />
-                        {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
-                        "Clear" %}
-                        <img
-                          class="bg-weather-size"
-                          src="{{ url_for('static',filename='picture_Weather/C.png') }}"
-                          alt=""
-                        />
-                        {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
-                        "Heavy Rain" %}
-                        <img
-                          class="bg-weather-size"
-                          src="{{ url_for('static',filename='picture_Weather/HR.png') }}"
-                          alt=""
-                        />
-                        {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
-                        "Rain" %}
-                        <img
-                          class="bg-weather-size"
-                          src="{{ url_for('static',filename='picture_Weather/HR.png') }}"
-                          alt=""
-                        />
-                        {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
-                        "Thunder Storm" %}
-                        <img
-                          class="bg-weather-size"
-                          src="{{ url_for('static',filename='picture_Weather/HR.png') }}"
-                          alt=""
-                        />
-                        {% endif %}
-                      </div>
-                      <div class="pl-4 pr-4">
 
+                      <div class="pl-4 pr-4">
+                        <h5 class="font-weight-bold">
+                          วัน/เดือน/ปี (เวลา):
+                          <span class="ml-1 text-dark font-weight-normal"
+                            >{{Value_WT.Forecast_data7d.time}}</span
+                          >
+                        </h5>
+                        <h5 class="font-weight-bold">
+                          จังหวัด:
+                          <span class="ml-1 text-dark font-weight-normal"
+                            >{{Value_WT.Forecast_city}}</span
+                          >
+                        </h5>
+                        <h5 class="font-weight-bold">
+                            เขต:
+                            <span class="ml-1 text-dark font-weight-normal"
+                              >{{Value_WT.Forecast_amphoe}}</span
+                            >
+                          </h5>
+                          <h5 class="font-weight-bold">
+                            แขวง:
+                            <span class="ml-1 text-dark font-weight-normal"
+                              >{{Value_WT.Forecast_tambon}}</span
+                            >
+                          </h5>
+                        <h5 class="font-weight-bold">
+                          อุณหภูมิปัจจุบัน:
+                          <span class="ml-1 text-dark font-weight-normal"
+                            >{{Value_WT.Forecast_data7d.data.tc_min}} - {{Value_WT.Forecast_data7d.data.tc_max}} °C</span
+                          >
+                        </h5>
                         <h5 class="font-weight-bold">
                           สภาพอากาศ:
                           <span class="ml-1 text-dark font-weight-normal"
-                            >{{Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescription}}
-                            ({{Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn}})</span
+                            >{{Value_WT.Forecast_data7d.data.cond}}
+                            </span
                           >
                         </h5>
                         <h5 class="font-weight-bold">
                           แรงลม:
                           <span class="ml-1 text-dark font-weight-normal"
-                            >{{Value_WT.Data_WeatherForecast7Days.Forecast[0].WindSpeed.Value}}
+                            >{{Value_WT.Forecast_data7d.data.ws10m}}
                             km/h</span
                           >
                         </h5>
                         <h5 class="font-weight-bold">
                           ฝนตก:
                           <span class="ml-1 font-weight-normal"
-                            >{{Value_WT.Data_WeatherForecast7Days.Forecast[0].Rain.Value}} %</span
+                            >{{Value_WT.Forecast_data7d.data.rain}} mm</span
                           >
                         </h5>
+                        <h5 class="font-weight-bold">
+                            ความชื้น:
+                            <span class="ml-1 font-weight-normal"
+                              >{{Value_WT.Forecast_data7d.data.rh}} %</span
+                            >
+                          </h5>
                         <h5 class="font-weight-bold">
                           ดัชนี AQI(PM2.5):
                           <span class="ml-1 font-weight-normal text-danger"
