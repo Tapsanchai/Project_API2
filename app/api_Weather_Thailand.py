@@ -1,6 +1,8 @@
-from app import __init__
 import requests
 import json  
+
+WeatherToday_url_TH = "https://data.tmd.go.th/api/WeatherToday/V1/?type=json"
+WeatherForecast7Days_url_TH = "http://data.tmd.go.th/api/WeatherForecast7Days/V1/?type=json"
 
 def show_weather(url_w_th):
     # WeatherToday
@@ -25,3 +27,7 @@ def show_weatherF(url_wf_th):
     Forecast_Datetime = result2['Provinces'][36]['SevenDaysForecast'][0]['Date']
     Data_WeatherForecast7Days = {"Forecast": Forecast, "Forecast_City": Forecast_City, "Forecast_Date": Forecast_Datetime}
     return Data_WeatherForecast7Days
+
+if __name__ == '__main__':
+    show_weather()
+    show_weatherF()

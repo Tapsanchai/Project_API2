@@ -1,6 +1,8 @@
-from app import __init__
 import requests
 import json 
+
+Covid19_url_TH ="https://covid19.th-stat.com/api/open/today"
+Covid19_url_World = "https://covid-19-world-data-by-zt.p.rapidapi.com/GetTotalCounts"
 
 def show_covid(url_th, url_world):
     # Covid19 today[thailand]
@@ -20,4 +22,6 @@ def show_covid(url_th, url_world):
     json_of_value_covid = {"Now_Covid19": Now_Covid19, "Data_Covid19_all": Data_Covid19_all}
     return(json_of_value_covid)
 
+if __name__ == '__main__':
+    show_covid()
     
