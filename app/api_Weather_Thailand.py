@@ -1,5 +1,7 @@
+from app import __init__
+from flask import json
 import requests
-import json  
+ 
 
 WeatherToday_url_TH = "https://data.tmd.go.th/api/WeatherToday/V1/?type=json"
 WeatherForecast7Days_url_TH = "http://data.tmd.go.th/api/WeatherForecast7Days/V1/?type=json"

@@ -1,5 +1,7 @@
+from app import __init__
+from flask import json
 import requests
-import json 
+
 
 Covid19_url_TH ="https://covid19.th-stat.com/api/open/today"
 Covid19_url_World = "https://covid-19-world-data-by-zt.p.rapidapi.com/GetTotalCounts"
