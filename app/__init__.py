@@ -15,7 +15,7 @@ def Show_Index():
     
 
     arguments_pm25 = show_pm25(PM_25_url_TH)
-    #arguments_Weather = show_weather(WeatherToday_url_TH, WeatherForecast7Days_url_TH)
+    arguments_Weather = show_weather(WeatherToday_url_TH, WeatherForecast7Days_url_TH)
     #arguments_WeatherForecast7Days = show_weatherF(WeatherForecast7Days_url_TH)
     '''
     arguments_covid = show_covid(Covid19_url_TH,Covid19_url_World))
