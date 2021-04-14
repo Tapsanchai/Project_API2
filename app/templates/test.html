@@ -43,35 +43,35 @@
                 <div class="row justify-content-between align-items-end">
                   <div class="col-lg-8">
                     <div class="text-left pl-4 mb-3">
-                      {% if Value_WForcast.Forecast[0].WeatherDescriptionEn ==
+                      {% if Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
                       "Partly Cloudy" %}
                       <img
                         class="bg-weather-size"
                         src="{{ url_for('static',filename='picture_Weather/PC.png') }}" 
                         alt=""
                       />
-                      {% elif Value_WForcast.Forecast[0].WeatherDescriptionEn ==
+                      {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
                       "Clear" %}
                       <img
                         class="bg-weather-size"
                         src="{{ url_for('static',filename='picture_Weather/C.png') }}"
                         alt=""
                       />
-                      {% elif Value_WForcast.Forecast[0].WeatherDescriptionEn ==
+                      {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
                       "Heavy Rain" %}
                       <img
                         class="bg-weather-size"
                         src="{{ url_for('static',filename='picture_Weather/HR.png') }}"
                         alt=""
                       />
-                      {% elif Value_WForcast.Forecast[0].WeatherDescriptionEn ==
+                      {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
                       "Rain" %}
                       <img
                         class="bg-weather-size"
                         src="{{ url_for('static',filename='picture_Weather/HR.png') }}"
                         alt=""
                       />
-                      {% elif Value_WForcast.Forecast[0].WeatherDescriptionEn ==
+                      {% elif Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn ==
                       "Thunder Storm" %}
                       <img
                         class="bg-weather-size"
@@ -84,39 +84,39 @@
                       <h5 class="font-weight-bold">
                         วัน/เดือน/ปี (เวลา):
                         <span class="ml-1 text-dark font-weight-normal"
-                          >{{Value_WToday.Datetime}}</span
+                          >{{Value_WT.Data_WeatherToday.Datetime}}</span
                         >
                       </h5>
                       <h5 class="font-weight-bold">
                         จังหวัด:
                         <span class="ml-1 text-dark font-weight-normal"
-                          >{{Value_WToday.City}}</span
+                          >{{Value_WT.Data_WeatherToday.City}}</span
                         >
                       </h5>
                       <h5 class="font-weight-bold">
                         อุณหภูมิปัจจุบัน:
                         <span class="ml-1 text-dark font-weight-normal"
-                          >{{Value_WToday.Tem}} °C</span
+                          >{{Value_WT.Data_WeatherToday.Tem}} °C</span
                         >
                       </h5>
                       <h5 class="font-weight-bold">
                         สภาพอากาศ:
                         <span class="ml-1 text-dark font-weight-normal"
-                          >{{Value_WForcast.Forecast[0].WeatherDescription}}
-                          ({{Value_WForcast.Forecast[0].WeatherDescriptionEn}})</span
+                          >{{Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescription}}
+                          ({{Value_WT.Data_WeatherForecast7Days.Forecast[0].WeatherDescriptionEn}})</span
                         >
                       </h5>
                       <h5 class="font-weight-bold">
                         แรงลม:
                         <span class="ml-1 text-dark font-weight-normal"
-                          >{{Value_WForcast.Forecast[0].WindSpeed.Value}}
+                          >{{Value_WT.Data_WeatherForecast7Days.Forecast[0].WindSpeed.Value}}
                           km/h</span
                         >
                       </h5>
                       <h5 class="font-weight-bold">
                         ฝนตก:
                         <span class="ml-1 font-weight-normal"
-                          >{{Value_WForcast.Forecast[0].Rain.Value}} %</span
+                          >{{Value_WT.Data_WeatherForecast7Days.Forecast[0].Rain.Value}} %</span
                         >
                       </h5>
                       <h5 class="font-weight-bold">
