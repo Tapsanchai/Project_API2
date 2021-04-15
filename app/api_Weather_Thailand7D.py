@@ -4,7 +4,7 @@ import requests
 
 WeatherForecast7Days_url_TH = "https://data.tmd.go.th/nwpapi/v1/forecast/location/daily/place"
 
-def show_weather(url_wf_th):
+def show_weather7d(url_wf_th):
     querystring = {"province":u"กรุงเทพมหานคร", "amphoe":u"หลักสี่", "tambon":u"ทุ่งสองห้อง", "fields":"tc_max,tc_min,rh,rain,ws10m,cond", "duration":"7"}
 
     headers = {
@@ -17,10 +17,10 @@ def show_weather(url_wf_th):
     Forecast_city = json_txt_7d['WeatherForecasts'][0]['location']['province']
     Forecast_amphoe = json_txt_7d['WeatherForecasts'][0]['location']['amphoe']
     Forecast_tambon = json_txt_7d['WeatherForecasts'][0]['location']['tambon']
-    Forecast_data7d = json_txt_7d['WeatherForecasts'][0]['forecasts'][0] 
+    Forecast_data7d = json_txt_7d['WeatherForecasts'][0]['forecasts'] 
     Forecast_all_data = {"Forecast_city": Forecast_city, "Forecast_amphoe": Forecast_amphoe, 
     "Forecast_tambon": Forecast_tambon, "Forecast_data7d": Forecast_data7d}
     return Forecast_all_data
 
 if __name__ == '__main__':
-    show_weather()
+    show_weather7d()
