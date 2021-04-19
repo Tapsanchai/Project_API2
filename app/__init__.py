@@ -13,7 +13,6 @@ from .api_Weather_ThailandTD import *
 @app.route("/", methods=(['GET', 'POST']))
 @app.route("/index", methods=(['GET', 'POST']))
 def Show_Index():
-    
 
     arguments_pm25 = show_pm25(PM_25_url_TH)
     arguments_covid = show_covid(Covid19_url_TH,Covid19_url_World)
