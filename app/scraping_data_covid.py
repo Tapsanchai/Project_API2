@@ -39,4 +39,4 @@ def show_report_vaccines(url):
 
 
 if __name__ == '__main__':
-    show_report_vaccines(report_vaccine_covid19_url)
+    show_report_vaccines()
