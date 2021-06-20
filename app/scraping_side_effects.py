@@ -15,7 +15,7 @@ def show_size_effects_vaccines(url_as,url_sino):
     res_si.encoding = "utf-8"
 
     # if res_as.status_code == 200 and res_si.status_code == 200:
-    print('call http = Success.', res_as)
+    # print('call http = Success.', res_as)
     soup_as = BeautifulSoup(res_as.text, 'html.parser')
     soup_si = BeautifulSoup(res_si.text, 'html.parser')
     # print(soup.prettify())
@@ -23,8 +23,8 @@ def show_size_effects_vaccines(url_as,url_sino):
     soup_img_si = soup_si.find('img',{'class':'aligncenter wp-image-141502 size-full'}).get('src')
     # soup_img_all = soup_all.find('div',{'id':'QA_1'})
 
-    print('soup_img_as: ',soup_img_as, '->', type(soup_img_as))
-    print('soup_img_as: ',soup_img_si, '->', type(soup_img_si))
+    # print('soup_img_as: ',soup_img_as, '->', type(soup_img_as))
+    # print('soup_img_as: ',soup_img_si, '->', type(soup_img_si))
     # print('soup_img_all: ',soup_img_all.find_all('li'), '->', type(soup_img_all))
     
     dict_size_effect_values = {}
@@ -32,7 +32,7 @@ def show_size_effects_vaccines(url_as,url_sino):
     list_size_effect_values.append(soup_img_as.strip())
     list_size_effect_values.append(soup_img_si.strip())
     dict_size_effect_values = {'SF1': list_size_effect_values}
-    print(dict_size_effect_values)
+    # print(dict_size_effect_values)
     
     # for key in dict_report_values.values():
     #     print(key)

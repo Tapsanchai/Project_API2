@@ -9,7 +9,7 @@ def show_report_vaccines(url):
     res.encoding = "utf-8"
 
     # if res.status_code == 200:
-    print('call http = Success.', res)
+    # print('call http = Success.', res)
     soup = BeautifulSoup(res.text, 'html.parser')
     # print(soup.prettify())
     soup_label = soup.find('label',{'class':'top-highlight'}).get_text()
@@ -23,13 +23,13 @@ def show_report_vaccines(url):
     list_report_values.append(obj_label.strip())
     list_report_values.append(obj_img.strip())
     dict_report_values = {'R1': list_report_values}
-    print(dict_report_values)
+    # print(dict_report_values)
     
-    for key in dict_report_values.values():
-        print(key)
-        print(key[0])
-        # print(item[0])
-        # print(item[1])
+    # for key in dict_report_values.values():
+    #     print(key)
+    #     print(key[0])
+    #     # print(item[0])
+    #     # print(item[1])
 
     return dict_report_values
 
@@ -39,5 +39,5 @@ def show_report_vaccines(url):
     #     print('call http = Error.', res)
 
 
-if __name__ == '__main__':
-    show_report_vaccines()
+# if __name__ == '__main__':
+#     show_report_vaccines()
