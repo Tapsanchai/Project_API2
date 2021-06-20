@@ -1,3 +1,4 @@
+from app import __init__
 from flask import json
 import requests
 

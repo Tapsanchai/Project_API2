@@ -1,3 +1,4 @@
+from app import __init__
 import requests
 from bs4 import BeautifulSoup
 
@@ -41,10 +42,10 @@ def show_size_effects_vaccines(url_as,url_sino):
 
         return dict_size_effect_values
 
-    elif res_as.status_code == 404 and res_si.status_code == 404:
-        print('call http = NotFound.', res_as) 
-    else:
-        print('call http = Error.', res_as)
+    # elif res_as.status_code == 404 and res_si.status_code == 404:
+    #     print('call http = NotFound.', res_as) 
+    # else:
+    #     print('call http = Error.', res_as)
 
 
 if __name__ == '__main__':

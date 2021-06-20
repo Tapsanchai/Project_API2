@@ -1,3 +1,4 @@
+from app import __init__
 import requests
 from flask import json
 from datetime import datetime, date

@@ -11,8 +11,8 @@ from .api_Weather_ThailandTD import *
 from .scraping_data_covid import *
 from .scraping_side_effects import *
 
-@app.route("/", methods=(['GET']))
-@app.route("/index", methods=(['GET']))
+@app.route("/", methods=(['GET','POST']))
+@app.route("/index", methods=(['GET','POST']))
 def Show_Index():
 
     arguments_pm25 = show_pm25(PM_25_url_TH)

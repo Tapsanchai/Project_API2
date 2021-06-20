@@ -1,3 +1,4 @@
+from app import __init__
 import requests
 from bs4 import BeautifulSoup
 
@@ -32,10 +33,10 @@ def show_report_vaccines(url):
 
         return dict_report_values
 
-    elif res.status_code == 404:
-        print('call http = NotFound.', res) 
-    else:
-        print('call http = Error.', res)
+    # elif res.status_code == 404:
+    #     print('call http = NotFound.', res) 
+    # else:
+    #     print('call http = Error.', res)
 
 
 if __name__ == '__main__':
