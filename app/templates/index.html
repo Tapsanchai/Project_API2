@@ -78,13 +78,13 @@
                     </div>
                     <div class="pl-4 pr-4">
                       <h5
-                        class="font-weight-bold text-truncate"
-                        style="width: 220px"
+                        class="font-weight-bold "
+                        
                       >
                         วันเวลา:
                         <span
                           class="ml-1 text-dark font-weight-normal"
-                          >{{Value_WT.Forecast_data7d[0].time}}</span
+                          >{{Value_WT.Forecast_data7d[0].time|truncate(13)}}</span
                         >
                       </h5>
                       <h5 class="font-weight-bold">
@@ -226,8 +226,8 @@
                       {% endif %}
                     </div>
                     <div class="card-body">
-                      <h4 class="card-title font-weight-bold text-truncate"
-                      style="width: 170px">{{i.time}}</h4>
+                      <h4 class="card-title font-weight-bold "
+                      >{{i.time|truncate(13)}}</h4>
                       <h5 class="font-weight-bold">
                         จังหวัด:
                         <span class="text-secondary font-weight-normal"
@@ -312,38 +312,139 @@
               <div class="col-lg-3 text-white shadow rounded-left bg-danger">
                 <div class="p-4">
                   <h5 class="">ติดเชื้อสะสม</h5>
-                  <h4 class="font-weight-bold">
+                  <h3 class="font-weight-bold">
                     {{Value_Covid.Now_Covid19.Confirmed}}
-                  </h4>
+                  </h3>
                 </div>
               </div>
               <div class="col-lg-3 text-white shadow bg-success">
                 <div class="p-4">
                   <h5 class="">รักษาหายแล้ว</h5>
-                  <h4 class="font-weight-bold">
+                  <h3 class="font-weight-bold">
                     {{Value_Covid.Now_Covid19.Recovered}}
-                  </h4>
+                  </h3>
                 </div>
               </div>
               <div class="col-lg-3 text-white shadow bg-info">
                 <div class="p-4">
                   <h5 class="">กำลังรักษา</h5>
-                  <h4 class="font-weight-bold">
+                  <h3 class="font-weight-bold">
                     {{Value_Covid.Now_Covid19.Hospitalized}}
-                  </h4>
+                  </h3>
                 </div>
               </div>
               <div class="col-lg-3 text-white shadow rounded-right bg-dark">
                 <div class="p-4">
                   <h5 class="">เสียชีวิต</h5>
-                  <h4 class="font-weight-bold">{{Value_Covid.Now_Covid19.Deaths}}</h4>
+                  <h3 class="font-weight-bold">{{Value_Covid.Now_Covid19.Deaths}}</h3>
                 </div>
               </div>
             </div>
+            <div class="text-right text-muted mt-2 mb-2">อัพเดทข้อมูลล่าสุด : {{Value_Covid.Now_Covid19.UpdateDate}}</div>
         </div>
       </div>
     </div>
   </div>
+  <!-- reprot -->
+  <div class="row justify-content-md-center">
+    <div class="col-lg-3">
+      {% for key,item in Value_Report.items() %}
+      <!-- Button trigger modal -->
+      <div class="p-4 bg-light text-center shadow-sm rounded-pill border">
+        <a type="button" class="text-decoration-none text-dark" data-toggle="modal" data-target="#show_report_today">
+          <h5 class="text-dark"> 
+            <span class="d-block display-4" style="color: #7333bd"><i class="fas fa-chart-line "></i></span>
+            รายงานผลการฉีดวัคซีนโควิดล่าสุด
+          </h5>
+        </a>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" tabindex="-1" aria-hidden="true" id="show_report_today">
+        <div class="modal-dialog modal-lg modal-xl" id="{{key}}">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">{{item[0]}}</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="{{item[1]}}" alt="not_found_image" title="image_report_covid_today" class="img-fluid mb-3">
+              <p class="text-muted">
+                ที่มา/แหล่งข้อมูลอ้างอิง:
+                <a href="https://ddc.moph.go.th/" target="_blank" rel="noopener noreferrer">https://ddc.moph.go.th/</a>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-lg-3">
+      {% for key,item in Value_Size_Effect.items() %}
+      <!-- Button trigger modal -->
+      <div class="p-4 bg-light text-center shadow-sm rounded-pill border">
+        <a type="button" class="text-decoration-none text-dark" data-toggle="modal" data-target="#show_size_effect">
+          <h5 class="text-dark"> 
+            <span class="d-block display-4" style="color: #7333bd"><i class="fas fa-heartbeat"></i></span>
+            สรุปผลข้างเคียงจากวัคซีน
+          </h5>
+        </a>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" tabindex="-1" aria-hidden="true" id="show_size_effect">
+        <div class="modal-dialog modal-lg modal-xl" id="{{key}}">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">สรุปผลข้างเคียงจากวัคซีน AstraZeneca/SINOVAC</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body bg-light">
+              <img src="{{item[0]}}" alt="not_found_image" title="image_size_effect_astra" class="img-fluid border mb-5">
+              <br>
+              <img src="{{item[1]}}" alt="not_found_image" title="image_size_effect_sinovac" class="img-fluid border mb-3">
+              <p class="text-muted">
+                ที่มา/แหล่งข้อมูลอ้างอิง:
+                <a href="https://thematter.co/" target="_blank" rel="noopener noreferrer">https://thematter.co/</a>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-lg-3">
+      <div class="p-4 bg-light text-center shadow-sm rounded-pill border">
+        <a href="https://webapp.bora.dopa.go.th/mophapp/" class="text-decoration-none text-dark" target="_blank">
+          <h5 class="text-dark"> 
+            <span class="d-block display-4" style="color: #7333bd"><i class="fas fa-stethoscope"></i></span>
+            ตรวจสอบการฉีดวัคซีน (หมอพร้อม)
+          </h5>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="p-4 bg-light text-center shadow-sm rounded-pill border">
+        <a href="https://ddc.moph.go.th/vaccine-covid19/getFiles/5/1620738884372.pdf" class="text-decoration-none text-dark" target="_blank">
+          <h5 class="text-dark"> 
+            <span class="d-block display-4" style="color: #7333bd"><i class="fab fa-readme"></i></span>
+            เอกสารคู่มือวัคซีนสู้โควิด 19
+          </h5>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div class="row mt-5">
     <div class="col-lg-12">
       <div class="mb-3">
@@ -357,25 +458,25 @@
             <div class="col-lg-4 text-white shadow rounded-left bg-danger">
               <div class="p-4">
                 <h5 class="">ติดเชื้อสะสม</h5>
-                <h4 class="font-weight-bold">
+                <h3 class="font-weight-bold">
                   {{Value_Covid.Data_Covid19_all.confirmed}}
-                </h4>
+                </h3>
               </div>
             </div>
             <div class="col-lg-4 text-white shadow bg-success">
               <div class="p-4">
                 <h5 class="">รักษาหายแล้ว</h5>
-                <h4 class="font-weight-bold">
+                <h3 class="font-weight-bold">
                   {{Value_Covid.Data_Covid19_all.recovered}}
-                </h4>
+                </h3>
               </div>
             </div>
             <div class="col-lg-4 text-white shadow rounded-right bg-dark">
               <div class="p-4">
                 <h5 class="">เสียชีวิต</h5>
-                <h4 class="font-weight-bold">
+                <h3 class="font-weight-bold">
                   {{Value_Covid.Data_Covid19_all.deaths}}
-                </h4>
+                </h3>
               </div>
             </div>
           </div>
@@ -385,6 +486,8 @@
   </div>
 
 </div>
+
+
 
 <div class="container-fluid" style="background-color: #efdbff">
   <div class="container">
