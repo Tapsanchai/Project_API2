@@ -7,11 +7,11 @@ size_effects_covid_sino_url = 'https://thematter.co/quick-bite/sinovac-side-effe
 
 def show_size_effects_vaccines(url_as,url_sino):
     # astra
-    res_as = requests.get(url_as)
+    res_as = requests.get(url_as,timeout=(20,20))
     res_as.encoding = "utf-8"
 
     # sino
-    res_si = requests.get(url_sino)
+    res_si = requests.get(url_sino,timeout=(20,20))
     res_si.encoding = "utf-8"
 
     # if res_as.status_code == 200 and res_si.status_code == 200:
