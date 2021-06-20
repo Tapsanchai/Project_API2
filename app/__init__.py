@@ -2,6 +2,7 @@ from flask import Flask, render_template
  
 app = Flask(__name__)
 app.config['SECRET_KEY'] ='mykey'
+app.config['PROPAGATE_EXCEPTIONS'] = True
 app.config['DEBUG'] = True
 
 from .api_covid19 import *
@@ -11,7 +12,7 @@ from .api_Weather_ThailandTD import *
 from .scraping_data_covid import *
 from .scraping_side_effects import *
 
-@app.route("/", methods=(['GET']))
+@app.route("/", methods=(['GET','POST']))
 # @app.route("/index", methods=(['GET','POST']))
 def Show_Index():
 
@@ -30,6 +31,7 @@ def Show_Index():
         Value_Report=arguments_report_vaccines,
         Value_Size_Effect=arguments_size_effect_vaccines
     )
+
 
 
 if __name__ == '__main__':

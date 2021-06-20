@@ -8,7 +8,11 @@ Covid19_url_World = "https://covid-19-world-data-by-zt.p.rapidapi.com/GetTotalCo
 def show_covid(url_th, url_world):
     # Covid19 today[thailand]
     response_covid19 = requests.get(url_th,timeout=(100,100))
-    result_covid19 = json.loads(response_covid19.text)
+
+    response_covid19.encoding = "utf-8"
+    re_dom =json.dumps(response_covid19.text)
+    
+    result_covid19 = json.loads(re_dom)
     Now_Covid19 = result_covid19
 
     # Covid19 All World 
