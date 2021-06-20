@@ -23,6 +23,6 @@ def show_covid(url_th, url_world):
     json_of_value_covid = {"Now_Covid19": Now_Covid19, "Data_Covid19_all": Data_Covid19_all}
     return(json_of_value_covid)
 
-if __name__ == '__main__':
-    show_covid()
+# if __name__ == '__main__':
+#     show_covid()
     

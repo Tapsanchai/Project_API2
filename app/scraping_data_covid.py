@@ -8,30 +8,30 @@ def show_report_vaccines(url):
     res = requests.get(url)
     res.encoding = "utf-8"
 
-    if res.status_code == 200:
-        print('call http = Success.', res)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        # print(soup.prettify())
-        soup_label = soup.find('label',{'class':'top-highlight'}).get_text()
-        soup_img = soup.find('img').get('src')
-        # print('soup_label: ',soup_label, '->', type(soup_label))
-        # print('soup_img: ',soup_img, '->', type(soup_img))
-        obj_img = soup_img
-        obj_label = soup_label
-        dict_report_values = {'R1': ''}
-        list_report_values = []
-        list_report_values.append(obj_label.strip())
-        list_report_values.append(obj_img.strip())
-        dict_report_values = {'R1': list_report_values}
-        print(dict_report_values)
-        
-        for key in dict_report_values.values():
-            print(key)
-            print(key[0])
-            # print(item[0])
-            # print(item[1])
+    # if res.status_code == 200:
+    print('call http = Success.', res)
+    soup = BeautifulSoup(res.text, 'html.parser')
+    # print(soup.prettify())
+    soup_label = soup.find('label',{'class':'top-highlight'}).get_text()
+    soup_img = soup.find('img').get('src')
+    # print('soup_label: ',soup_label, '->', type(soup_label))
+    # print('soup_img: ',soup_img, '->', type(soup_img))
+    obj_img = soup_img
+    obj_label = soup_label
+    dict_report_values = {'R1': ''}
+    list_report_values = []
+    list_report_values.append(obj_label.strip())
+    list_report_values.append(obj_img.strip())
+    dict_report_values = {'R1': list_report_values}
+    print(dict_report_values)
+    
+    for key in dict_report_values.values():
+        print(key)
+        print(key[0])
+        # print(item[0])
+        # print(item[1])
 
-        return dict_report_values
+    return dict_report_values
 
     # elif res.status_code == 404:
     #     print('call http = NotFound.', res) 

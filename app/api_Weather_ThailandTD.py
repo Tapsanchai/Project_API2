@@ -31,5 +31,5 @@ def show_weathertd(url_w_th):
     return Forecast_data_td
 
 
-if __name__ == '__main__':
-    show_weathertd()
+# if __name__ == '__main__':
+#     show_weathertd()

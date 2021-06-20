@@ -12,7 +12,7 @@ from .scraping_data_covid import *
 from .scraping_side_effects import *
 
 @app.route("/", methods=(['GET','POST']))
-@app.route("/index", methods=(['GET','POST']))
+# @app.route("/index", methods=(['GET','POST']))
 def Show_Index():
 
     arguments_pm25 = show_pm25(PM_25_url_TH)
@@ -28,7 +28,7 @@ def Show_Index():
         Value_WT=arguments_Weather7d, 
         Value_WToday=arguments_Weathertd,
         Value_Report=arguments_report_vaccines,
-        Value_Size_Effect=arguments_size_effect_vaccines
+        Value_Size_Effect=arguments_size_effect_vaccines,
     )
 
 
