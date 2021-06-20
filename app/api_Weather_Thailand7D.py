@@ -1,5 +1,4 @@
-from app import __init__
-from flask import json
+import json
 import requests
 
 WeatherForecast7Days_url_TH = "https://data.tmd.go.th/nwpapi/v1/forecast/location/daily/place"
