@@ -1,4 +1,4 @@
-from app import __init__
+# from app import __init__
 import requests
 from bs4 import BeautifulSoup
 
