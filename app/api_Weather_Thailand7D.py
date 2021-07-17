@@ -22,5 +22,5 @@ def show_weather7d(url_wf_th):
     "Forecast_tambon": Forecast_tambon, "Forecast_data7d": Forecast_data7d}
     return Forecast_all_data
 
-# if __name__ == '__main__':
-#     show_weather7d()
+if __name__ == '__main__':
+    show_weather7d()

@@ -49,5 +49,5 @@ def show_size_effects_vaccines(url_as,url_sino):
     #     print('call http = Error.', res_as)
 
 
-# if __name__ == '__main__':
-#     show_size_effects_vaccines()
+if __name__ == '__main__':
+    show_size_effects_vaccines()

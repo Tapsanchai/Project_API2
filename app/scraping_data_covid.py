@@ -39,5 +39,5 @@ def show_report_vaccines(url):
     #     print('call http = Error.', res)
 
 
-# if __name__ == '__main__':
-#     show_report_vaccines()
+if __name__ == '__main__':
+    show_report_vaccines()

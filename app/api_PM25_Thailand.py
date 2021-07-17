@@ -15,5 +15,5 @@ def show_pm25(url_th):
     Now_AQI = result['data']['current']['pollution']['aqius']
     return Now_AQI
 
-# if __name__ == '__main__':
-#     show_pm25()
+if __name__ == '__main__':
+    show_pm25()
